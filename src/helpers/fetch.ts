@@ -10,7 +10,7 @@ interface Pokemon {
 
 const pokemonPlaceholder: Pokemon = {
     name: 'pokemon',
-    img: 'https://i.pinimg.com/1200x/a7/65/b3/a765b3382a2360ce729c99ca32288c81.jpg',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/6/62/MissingNo.png',
     type: 'normal',
     number: '#000'
 }
