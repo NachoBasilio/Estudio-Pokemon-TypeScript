@@ -8,9 +8,16 @@ interface Pokemon {
     number: string;
 }
 
+const pokemonPlaceholder: Pokemon = {
+    name: 'pokemon',
+    img: 'https://i.pinimg.com/1200x/a7/65/b3/a765b3382a2360ce729c99ca32288c81.jpg',
+    type: 'normal',
+    number: '#000'
+}
+
 const fetchPokemonGeneration = async (generation: number): Promise<Pokemon[]> => {
     const pokemons: Pokemon[] = [];
-    console.log(generation);
+    
 
     const apiUrl = pokemonGeneration(generation);
 
@@ -34,6 +41,8 @@ const fetchPokemonGeneration = async (generation: number): Promise<Pokemon[]> =>
 
         pokemons.push(pokemonFormatted);
     }
+    //agregar pokemonPlaceholder primero
+    pokemons.unshift(pokemonPlaceholder);
 
     return pokemons;
 };
@@ -150,7 +159,7 @@ const fetchPokemonGames = async (name: string): Promise<Pokemon[]> => {
         pokemons.push(pokemonFormatted);
     }
 
-    console.log(pokemons);
+    pokemons.unshift(pokemonPlaceholder);
     return pokemons;
 };
 
