@@ -23,7 +23,6 @@ const fetchPokemon = async (generation: number): Promise<Pokemon[]> => {
 
         const { id, name, sprites, types } = data;
         const { front_default } = sprites.other["official-artwork"];
-        console.log(front_default);
         const pokemonFormatted: Pokemon = {
             name,
             img: front_default,

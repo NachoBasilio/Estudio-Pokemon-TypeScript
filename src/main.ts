@@ -6,7 +6,12 @@ const loader: HTMLElement | null = document.getElementById('loader');
 
 
 const creadorDeSelect = async (generacion: number, select: HTMLElement, padre: HTMLElement) => {
-    const pokemon = await fetchPokemon(generacion);
+  let pokemon:any
+  if(localStorage.getItem('pokemon'+generacion)){
+    pokemon = JSON.parse(localStorage.getItem('pokemon'+generacion) || '{}');
+  }else{
+    pokemon = await fetchPokemon(generacion);
+  }
     pokemon.forEach((pokemon: any) => {
         const option = document.createElement('option');
         option.value = pokemon.name;
@@ -27,8 +32,16 @@ const creadoraDeCards = async (generacion: number, padre: HTMLElement) => {
 
   contenedor.classList.add('card');
   contenedorIMG.classList.add('contenedorIMG');
+  let pokemon:any
+  if(localStorage.getItem('pokemon'+generacion)){
+    pokemon = JSON.parse(localStorage.getItem('pokemon'+generacion) || '{}');
+  }else{
+    pokemon = await fetchPokemon(generacion);
+  }
 
-  const pokemon = await fetchPokemon(generacion);
+   
+
+  localStorage.setItem('pokemon'+generacion, JSON.stringify(pokemon));
 
   nombre.textContent = pokemon[0].name.charAt(0).toUpperCase() + pokemon[0].name.slice(1); 
   img.setAttribute('src', pokemon[0].img);
@@ -81,11 +94,11 @@ window.addEventListener("DOMContentLoaded", async () => {
   contenedorMayor.classList.add('contenedorMayor');
 
   // Realiza tus operaciones de creación de cards aquí
-  await creadoraDeCards(9, contenedorMayor);
-  await creadoraDeCards(9, contenedorMayor);
-  await creadoraDeCards(9, contenedorMayor);
-  await creadoraDeCards(9, contenedorMayor);
-  await creadoraDeCards(9, contenedorMayor);
+  await creadoraDeCards(3, contenedorMayor);
+  await creadoraDeCards(3, contenedorMayor);
+  await creadoraDeCards(1, contenedorMayor);
+  await creadoraDeCards(2, contenedorMayor);
+  await creadoraDeCards(7, contenedorMayor);
   await creadoraDeCards(9, contenedorMayor);
 
   ocultarLoader();
