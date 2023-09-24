@@ -2,7 +2,7 @@ import creadoraDeCards from "./creadoraDeCards";
 
 
 
-const modal = (app: HTMLElement | null) => {
+const modal = (app: HTMLElement | null, gym:number) => {
     const modal = document.createElement('div');
     const titulo = document.createElement('h2');
     const form = document.createElement('div');
@@ -103,7 +103,10 @@ const modal = (app: HTMLElement | null) => {
 
     botonGame.addEventListener('click', () => {
         modal.classList.add('eliminarModal');
-        
+        const GymNodo: HTMLElement = document.createElement('h3');
+        GymNodo.textContent = 'Gym: ' + gym;
+        app?.appendChild(GymNodo);
+        gym++;
         creadoraDeCards(selectGame.value.toLocaleLowerCase(), app);
         creadoraDeCards(selectGame.value.toLocaleLowerCase(), app);
         creadoraDeCards(selectGame.value.toLocaleLowerCase(), app);
@@ -114,7 +117,10 @@ const modal = (app: HTMLElement | null) => {
 
     botonGeneracion.addEventListener('click', () => {
         modal.classList.add('eliminarModal');
-
+        const GymNodo: HTMLElement = document.createElement('h3');
+        GymNodo.textContent = 'Gym: ' + gym;
+        app?.appendChild(GymNodo);
+        gym++;
         creadoraDeCards(parseInt(selectGeneration.value), app);
         creadoraDeCards(parseInt(selectGeneration.value), app);
         creadoraDeCards(parseInt(selectGeneration.value), app);

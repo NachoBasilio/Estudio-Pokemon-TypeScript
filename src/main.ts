@@ -5,7 +5,7 @@ import "./modal.css"
 
 const app: HTMLElement | null = document.getElementById('app');
 
-
+let gym = 1
 
 const contenedorMayor: HTMLElement = document.createElement('div');
 contenedorMayor.classList.add('contenedorMayor');
@@ -30,7 +30,7 @@ const componenteInicial = () => {
 }
 
 
-const modalNodo = modal(contenedorMayor);
+const modalNodo = modal(contenedorMayor, gym);
 modalNodo.classList.add('eliminarModal');
 
 
