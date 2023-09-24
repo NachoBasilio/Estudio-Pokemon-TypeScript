@@ -19,6 +19,7 @@ const componenteInicial = () => {
   const mas = document.createElement('button');
   mas.classList.add('mas');
   mas.innerText = 'Agrega Pokemon';
+  
 
   mas.addEventListener('click', async () => {
     modalNodo.classList.remove('eliminarModal');

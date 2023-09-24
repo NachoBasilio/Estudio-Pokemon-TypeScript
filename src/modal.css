@@ -10,15 +10,25 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    width: 30%;
+    width: 60%;
     height: 30%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 20px
+    overflow: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+select{
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
 .boton{
-    background-color: #4CAF50;
+    background-color: white;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -26,6 +36,21 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    color: black;
+}
+
+.titulo{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+label{
+    color: white;
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .form{
@@ -42,4 +67,57 @@
 
 .cargando{
     display: none;
+}
+
+.botonCerrar {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: rotate(0deg); /* Inicialmente sin rotación */
+    transition: transform 0.3s ease; /* Transición suave para la rotación */
+  }
+
+  .botonCerrar:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+  }
+
+  /* Rotación de la "X" cuando se hace clic */
+  .botonCerrar.clicked {
+    transform: rotate(45deg);
+  }
+
+
+
+/* Media Queries */
+
+@media screen and (min-width: 600px){
+    .modal{
+        width: 30%;
+        height: 30%;
+    }
+
+}
+
+@media screen and (min-width: 1024px){
+    .modal{
+        width: 20%;
+        height: 30%;
+    }
+}
+
+@media screen and (min-width: 1440px){
+    .modal{
+        width: 15%;
+        height: 30%;
+    }
 }

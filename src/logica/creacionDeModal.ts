@@ -12,6 +12,7 @@ const modal = (app: HTMLElement | null) => {
     const selectGeneration = document.createElement('select');
     const botonGeneracion = document.createElement('button');
     const botonGame = document.createElement('button');
+    const botonCerrar = document.createElement('button');
 
     modal.classList.add('modal');
     titulo.classList.add('titulo');
@@ -22,12 +23,15 @@ const modal = (app: HTMLElement | null) => {
     selectGeneration.classList.add('select');
     botonGeneracion.classList.add('boton');
     botonGame.classList.add('boton');
+    botonCerrar.classList.add('botonCerrar');
+    
 
     titulo.textContent = 'Agrega un Pokemon';
     textoGame.textContent = 'Selecciona un juego';
     textoGeneration.textContent = 'Selecciona una generación';
     botonGeneracion.textContent = 'Agregar';
     botonGame.textContent = 'Agregar';
+    botonCerrar.textContent = 'X';
 
     const generaciones = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     const games = [
@@ -92,8 +96,10 @@ const modal = (app: HTMLElement | null) => {
     form.appendChild(textoGeneration);
     form.appendChild(selectGeneration);
     form.appendChild(botonGeneracion);
+    form.appendChild(botonCerrar);
     modal.appendChild(titulo);
     modal.appendChild(form);
+
 
     botonGame.addEventListener('click', () => {
         modal.classList.add('eliminarModal');
@@ -105,6 +111,11 @@ const modal = (app: HTMLElement | null) => {
         modal.classList.add('eliminarModal');
 
         creadoraDeCards(parseInt(selectGeneration.value), app);
+    })
+
+    botonCerrar.addEventListener('click', () => {
+        
+        modal.classList.add('eliminarModal');
     })
 
     return modal;
