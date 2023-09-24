@@ -1,4 +1,4 @@
-import fetchPokemon from "./helpers/fetch";
+import pokemonGenereation, { fetchPokemonGames } from "./helpers/fetch";
 import "./style.css"
 
 const app: HTMLElement | null = document.getElementById('app');
@@ -10,7 +10,7 @@ const creadorDeSelect = async (generacion: number, select: HTMLElement, padre: H
   if(localStorage.getItem('pokemon'+generacion)){
     pokemon = JSON.parse(localStorage.getItem('pokemon'+generacion) || '{}');
   }else{
-    pokemon = await fetchPokemon(generacion);
+    pokemon = await pokemonGenereation(generacion);
   }
     pokemon.forEach((pokemon: any) => {
         const option = document.createElement('option');
@@ -36,7 +36,7 @@ const creadoraDeCards = async (generacion: number, padre: HTMLElement) => {
   if(localStorage.getItem('pokemon'+generacion)){
     pokemon = JSON.parse(localStorage.getItem('pokemon'+generacion) || '{}');
   }else{
-    pokemon = await fetchPokemon(generacion);
+    pokemon = await pokemonGenereation(generacion);
   }
 
    
@@ -105,3 +105,5 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   app?.appendChild(contenedorMayor);
 });
+
+console.log(await fetchPokemonGames('sword'))

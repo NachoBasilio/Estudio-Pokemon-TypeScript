@@ -23,4 +23,48 @@ const pokemonGenereation = (generation: number) => {
     }
 }
 
+const pokemonGames = (name: string) => {
+    switch (name) {
+        case 'red' || 'blue':
+            return 'https://pokeapi.co/api/v2/version-group/1/';
+        case 'yellow':
+            return 'https://pokeapi.co/api/v2/version-group/2/';
+        case 'gold' || 'silver':
+            return 'https://pokeapi.co/api/v2/version-group/3/';
+        case 'crystal':
+            return 'https://pokeapi.co/api/v2/version-group/4/';
+        case 'ruby' || 'sapphire':
+            return 'https://pokeapi.co/api/v2/version-group/5/';
+        case 'emerald':
+            return 'https://pokeapi.co/api/v2/version-group/6/';
+        case 'firered' || 'leafgreen':
+            return 'https://pokeapi.co/api/v2/version-group/7/';
+        case 'diamond' || 'pearl':
+            return 'https://pokeapi.co/api/v2/version-group/8/';
+        case 'platinum':
+            return 'https://pokeapi.co/api/v2/version-group/9/';
+        case 'heartgold' || 'soulsilver':
+            return 'https://pokeapi.co/api/v2/version-group/10/';
+        case 'black' || 'white':
+            return 'https://pokeapi.co/api/v2/version-group/11/';
+        case "black-2" || "white-2":
+            return 'https://pokeapi.co/api/v2/version-group/14/';
+        case 'x' || 'y':
+            return 'https://pokeapi.co/api/v2/version-group/15/';
+        case 'omega-ruby' || 'alpha-sapphire':
+            return 'https://pokeapi.co/api/v2/version-group/16/';
+        case 'sun' || 'moon':
+            return 'https://pokeapi.co/api/v2/version-group/17/';
+        case 'ultra-sun' || 'ultra-moon':
+            return 'https://pokeapi.co/api/v2/version-group/18/';
+        case 'lets-go-pikachu' || 'lets-go-eevee':
+            return 'https://pokeapi.co/api/v2/version-group/19/';
+        case 'sword' || 'shield':
+            return 'https://pokeapi.co/api/v2/version-group/20/';
+        default:
+            return 'https://pokeapi.co/api/v2/pokemon?limit=109&offset=905';
+    }
+}
+
 export default pokemonGenereation;
+export { pokemonGames };
