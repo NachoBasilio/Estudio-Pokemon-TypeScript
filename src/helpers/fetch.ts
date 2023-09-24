@@ -10,6 +10,7 @@ interface Pokemon {
 
 const fetchPokemonGeneration = async (generation: number): Promise<Pokemon[]> => {
     const pokemons: Pokemon[] = [];
+    console.log(generation);
 
     const apiUrl = pokemonGeneration(generation);
 
