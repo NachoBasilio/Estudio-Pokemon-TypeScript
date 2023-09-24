@@ -2,7 +2,7 @@ import fetchPokemonGeneration, { fetchPokemonGames } from "../helpers/fetch";
 import creadorDeSelect from "./creadorDeSelect";
 
 
-const creadoraDeCards = async (generacion: number | string, padre: HTMLElement) => {
+const creadoraDeCards = async (generacion: number | string, padre: HTMLElement | null) => {
     const contenedor: HTMLElement = document.createElement('div');
     const contenedorIMG: HTMLElement = document.createElement('div');
     const img: HTMLElement = document.createElement('img');

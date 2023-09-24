@@ -25,46 +25,61 @@ const pokemonGenereation = (generation: number) => {
 
 const pokemonGames = (name: string) => {
     switch (name) {
-        case 'red' || 'blue':
+        case 'red':
+        case 'blue':
             return 'https://pokeapi.co/api/v2/version-group/1/';
         case 'yellow':
             return 'https://pokeapi.co/api/v2/version-group/2/';
-        case 'gold' || 'silver':
+        case 'gold':
+        case 'silver':
             return 'https://pokeapi.co/api/v2/version-group/3/';
         case 'crystal':
             return 'https://pokeapi.co/api/v2/version-group/4/';
-        case 'ruby' || 'sapphire':
+        case 'ruby':
+        case 'sapphire':
             return 'https://pokeapi.co/api/v2/version-group/5/';
         case 'emerald':
             return 'https://pokeapi.co/api/v2/version-group/6/';
-        case 'firered' || 'leafgreen':
+        case 'firered':
+        case 'leafgreen':
             return 'https://pokeapi.co/api/v2/version-group/7/';
-        case 'diamond' || 'pearl':
+        case 'diamond':
+        case 'pearl':
             return 'https://pokeapi.co/api/v2/version-group/8/';
         case 'platinum':
             return 'https://pokeapi.co/api/v2/version-group/9/';
-        case 'heartgold' || 'soulsilver':
+        case 'heartgold':
+        case 'soulsilver':
             return 'https://pokeapi.co/api/v2/version-group/10/';
-        case 'black' || 'white':
+        case 'black':
+        case 'white':
             return 'https://pokeapi.co/api/v2/version-group/11/';
-        case "black-2" || "white-2":
+        case "black-2":
+        case "white-2":
             return 'https://pokeapi.co/api/v2/version-group/14/';
-        case 'x' || 'y':
+        case 'x':
+        case 'y':
             return 'https://pokeapi.co/api/v2/version-group/15/';
-        case 'omega-ruby' || 'alpha-sapphire':
+        case 'omega-ruby':
+        case 'alpha-sapphire':
             return 'https://pokeapi.co/api/v2/version-group/16/';
-        case 'sun' || 'moon':
+        case 'sun':
+        case 'moon':
             return 'https://pokeapi.co/api/v2/version-group/17/';
-        case 'ultra-sun' || 'ultra-moon':
+        case 'ultra-sun':
+        case 'ultra-moon':
             return 'https://pokeapi.co/api/v2/version-group/18/';
-        case 'lets-go-pikachu' || 'lets-go-eevee':
+        case 'lets-go-pikachu':
+        case 'lets-go-eevee':
             return 'https://pokeapi.co/api/v2/version-group/19/';
-        case 'sword' || 'shield':
+        case 'sword':
+        case 'shield':
             return 'https://pokeapi.co/api/v2/version-group/20/';
         default:
             return 'https://pokeapi.co/api/v2/pokemon?limit=109&offset=905';
     }
 }
+
 
 export default pokemonGenereation;
 export { pokemonGames };

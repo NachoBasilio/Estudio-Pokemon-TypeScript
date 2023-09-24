@@ -116,12 +116,12 @@ const fetchPokemonGames = async (name: string): Promise<Pokemon[]> => {
     if (name === "scarlet" || name === "violet") {
         return fetchPokemonGeneration(9);
     }
-
     const apiUrl = pokemonGames(name);
+    console.log(apiUrl);
 
     const response = await fetch(apiUrl);
     const data = await response.json();
-
+    console.log(data);
     const PokemonURLs: string[] = [];
 
     for (const pokedex of data.pokedexes) {
