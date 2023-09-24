@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contenedorMayor{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -20px;
+  margin-top: -20px;
+  z-index: 999;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Ocultar el loader por defecto */
+.loader.hidden {
+  display: none;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin: 10px;
+   
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+/* Aplicar a todos los elementos de card */
+.card *{
+    margin-top: 5px;
+}
+
+.contenedorIMG{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.contenedorIMG img{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+select{
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}

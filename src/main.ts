@@ -1,12 +1,8 @@
 import fetchPokemon from "./helpers/fetch";
+import "./style.css"
 
 const app: HTMLElement | null = document.getElementById('app');
-interface Pokemon {
-  name: string;
-  img: string;
-  type: string;
-  number: string;
-}
+const loader: HTMLElement | null = document.getElementById('loader');
 
 
 const creadorDeSelect = async (generacion: number, select: HTMLElement, padre: HTMLElement) => {
@@ -21,19 +17,25 @@ const creadorDeSelect = async (generacion: number, select: HTMLElement, padre: H
     padre?.appendChild(select);
 }
 
-const creadoraDeCards = async (generacion: number) => {
+const creadoraDeCards = async (generacion: number, padre: HTMLElement) => {
   const contenedor: HTMLElement = document.createElement('div');
+  const contenedorIMG: HTMLElement = document.createElement('div');
   const img: HTMLElement = document.createElement('img');
   const nombre: HTMLElement = document.createElement('h2');
   const tipo: HTMLElement = document.createElement('h3');
   const select: HTMLElement = document.createElement('select');
+
+  contenedor.classList.add('card');
+  contenedorIMG.classList.add('contenedorIMG');
+
   const pokemon = await fetchPokemon(generacion);
 
-  nombre.textContent = pokemon[0].name;
+  nombre.textContent = pokemon[0].name.charAt(0).toUpperCase() + pokemon[0].name.slice(1); 
   img.setAttribute('src', pokemon[0].img);
-  tipo.textContent = pokemon[0].type;
+  tipo.textContent = pokemon[0].type.charAt(0).toUpperCase() + pokemon[0].type.slice(1);
   contenedor.appendChild(nombre);
-  contenedor.appendChild(img);
+  contenedorIMG.appendChild(img);
+  contenedor.appendChild(contenedorIMG);
   contenedor.appendChild(tipo);
  
 
@@ -44,26 +46,49 @@ const creadoraDeCards = async (generacion: number) => {
     const pokemonSeleccionado = pokemon.find((pokemon: any) => pokemon.name === target.value);
   
     if (pokemonSeleccionado) {
-      nombre.textContent = pokemonSeleccionado.name;
+      nombre.textContent = pokemonSeleccionado.name.charAt(0).toUpperCase() + pokemonSeleccionado.name.slice(1);
       img.setAttribute('src', pokemonSeleccionado.img);
-      tipo.textContent = pokemonSeleccionado.type;
+      tipo.textContent = pokemonSeleccionado.type.charAt(0).toUpperCase() + pokemonSeleccionado.type.slice(1);
     }
   });
   
-  app?.appendChild(contenedor);
+  padre?.appendChild(contenedor);
 
 
 }
 
 
-window.addEventListener("DOMContentLoaded", ()=>{
-
-    creadoraDeCards(8);
-    creadoraDeCards(8);
-    creadoraDeCards(8);
-    creadoraDeCards(8);
-    creadoraDeCards(8);
-    creadoraDeCards(8);
 
 
-})
+// Función para mostrar el loader
+function mostrarLoader() {
+  if (loader) {
+    loader.classList.remove('hidden');
+  }
+}
+
+// Función para ocultar el loader
+function ocultarLoader() {
+  if (loader) {
+    loader.classList.add('hidden');
+  }
+}
+
+window.addEventListener("DOMContentLoaded", async () => {
+  mostrarLoader();
+
+  const contenedorMayor: HTMLElement = document.createElement('div');
+  contenedorMayor.classList.add('contenedorMayor');
+
+  // Realiza tus operaciones de creación de cards aquí
+  await creadoraDeCards(9, contenedorMayor);
+  await creadoraDeCards(9, contenedorMayor);
+  await creadoraDeCards(9, contenedorMayor);
+  await creadoraDeCards(9, contenedorMayor);
+  await creadoraDeCards(9, contenedorMayor);
+  await creadoraDeCards(9, contenedorMayor);
+
+  ocultarLoader();
+
+  app?.appendChild(contenedorMayor);
+});

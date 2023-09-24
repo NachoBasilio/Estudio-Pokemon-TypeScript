@@ -15,7 +15,9 @@ const pokemonGenereation = (generation: number) => {
         case 7:
             return 'https://pokeapi.co/api/v2/pokemon?limit=88&offset=721';
         case 8:
-            return 'https://pokeapi.co/api/v2/pokemon?limit=89&offset=809';
+            return 'https://pokeapi.co/api/v2/pokemon?limit=96&offset=809';
+        case 9:
+            return 'https://pokeapi.co/api/v2/pokemon?limit=109&offset=905';
         default:
             return 'https://pokeapi.co/api/v2/pokemon?limit=151';
     }
