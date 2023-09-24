@@ -1,3 +1,4 @@
+import pokemonGenereation from "./generacionSelector";
 
 interface Pokemon {
     name: string;
@@ -6,10 +7,10 @@ interface Pokemon {
     number: string;
 }
 
-const fetchPokemon = async (): Promise<Pokemon[]>  => {
+const fetchPokemon = async (generation:number): Promise<Pokemon[]>  => {
     const pokemons: Pokemon[] = [];
 
-    const apiUrl = 'https://pokeapi.co/api/v2/pokemon';
+    const apiUrl = pokemonGenereation(generation);
     
     const response = await fetch(apiUrl);
     const data = await response.json();
