@@ -105,11 +105,21 @@ const modal = (app: HTMLElement | null) => {
         modal.classList.add('eliminarModal');
         
         creadoraDeCards(selectGame.value.toLocaleLowerCase(), app);
+        creadoraDeCards(selectGame.value.toLocaleLowerCase(), app);
+        creadoraDeCards(selectGame.value.toLocaleLowerCase(), app);
+        creadoraDeCards(selectGame.value.toLocaleLowerCase(), app);
+        creadoraDeCards(selectGame.value.toLocaleLowerCase(), app);
+        creadoraDeCards(selectGame.value.toLocaleLowerCase(), app);
     })
 
     botonGeneracion.addEventListener('click', () => {
         modal.classList.add('eliminarModal');
 
+        creadoraDeCards(parseInt(selectGeneration.value), app);
+        creadoraDeCards(parseInt(selectGeneration.value), app);
+        creadoraDeCards(parseInt(selectGeneration.value), app);
+        creadoraDeCards(parseInt(selectGeneration.value), app);
+        creadoraDeCards(parseInt(selectGeneration.value), app);
         creadoraDeCards(parseInt(selectGeneration.value), app);
     })
 
