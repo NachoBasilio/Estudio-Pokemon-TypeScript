@@ -71,8 +71,14 @@ const creadoraDeCards = async (generacion: number | string, padre: HTMLElement |
 
     
     p.classList.add('cargando');
+    
     padre?.appendChild(contenedor);
-  
+    padre?.appendChild(contenedor);
+    padre?.appendChild(contenedor);
+    padre?.appendChild(contenedor);
+    padre?.appendChild(contenedor);
+    padre?.appendChild(contenedor);
+
   
 }
   

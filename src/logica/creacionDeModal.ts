@@ -103,7 +103,7 @@ const modal = (app: HTMLElement | null) => {
 
     botonGame.addEventListener('click', () => {
         modal.classList.add('eliminarModal');
-        console.log(selectGame.value.toLocaleLowerCase());
+        
         creadoraDeCards(selectGame.value.toLocaleLowerCase(), app);
     })
 
