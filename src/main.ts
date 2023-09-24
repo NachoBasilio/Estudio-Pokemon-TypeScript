@@ -4,10 +4,7 @@ import "./style.css"
 import "./modal.css"
 
 const app: HTMLElement | null = document.getElementById('app');
-const loader: HTMLElement | null = document.getElementById('loader');
-if (loader && app) {
-  app.appendChild(loader);
-}
+
 
 
 const contenedorMayor: HTMLElement = document.createElement('div');
@@ -32,31 +29,18 @@ const componenteInicial = () => {
 }
 
 
-const mostrarLoader = ()=> {
-  if (loader) {
-    loader.classList.remove('hidden');
-  }
-}
-
-
-const ocultarLoader = ()=> {
-  if (loader) {
-    loader.classList.add('hidden');
-  }
-}
-const modalNodo = modal(contenedorMayor, mostrarLoader, ocultarLoader);
+const modalNodo = modal(contenedorMayor);
 modalNodo.classList.add('eliminarModal');
 
 
 
 window.addEventListener("DOMContentLoaded", async () => {
-  mostrarLoader();
-
+  
   // Realiza tus operaciones de creación de cards aquí
   await componenteInicial();
 
   // Una vez que las operaciones de creación de cards se completen, oculta el loader
-  ocultarLoader();
+  
 
   app?.appendChild(modalNodo);
   app?.appendChild(contenedorMayor);

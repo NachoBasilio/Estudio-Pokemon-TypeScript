@@ -1,7 +1,8 @@
 import creadoraDeCards from "./creadoraDeCards";
 
 
-const modal = (app: HTMLElement | null, openLoader: any, closeLoader:any) => {
+
+const modal = (app: HTMLElement | null) => {
     const modal = document.createElement('div');
     const titulo = document.createElement('h2');
     const form = document.createElement('div');
@@ -95,18 +96,15 @@ const modal = (app: HTMLElement | null, openLoader: any, closeLoader:any) => {
     modal.appendChild(form);
 
     botonGame.addEventListener('click', () => {
-        openLoader();
         modal.classList.add('eliminarModal');
         console.log(selectGame.value.toLocaleLowerCase());
         creadoraDeCards(selectGame.value.toLocaleLowerCase(), app);
-        closeLoader();
     })
 
     botonGeneracion.addEventListener('click', () => {
-        openLoader()
         modal.classList.add('eliminarModal');
+
         creadoraDeCards(parseInt(selectGeneration.value), app);
-        closeLoader();
     })
 
     return modal;

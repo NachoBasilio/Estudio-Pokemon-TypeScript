@@ -9,10 +9,13 @@ const creadoraDeCards = async (generacion: number | string, padre: HTMLElement |
     const nombre: HTMLElement = document.createElement('h2');
     const tipo: HTMLElement = document.createElement('h3');
     const select: HTMLElement = document.createElement('select');
+    const p = document.createElement('p');
+    p.textContent = 'cargando...';
+    
+    padre?.appendChild(p);
   
     contenedor.classList.add('card');
     contenedorIMG.classList.add('contenedorIMG');
-
 
     let pokemon:any
 
@@ -53,6 +56,8 @@ const creadoraDeCards = async (generacion: number | string, padre: HTMLElement |
       }
     });
     
+    
+    p.classList.add('cargando');
     padre?.appendChild(contenedor);
   
   

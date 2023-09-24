@@ -39,3 +39,7 @@
 .eliminarModal{
     display: none;
 }
+
+.cargando{
+    display: none;
+}
