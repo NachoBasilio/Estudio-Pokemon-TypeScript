@@ -14,7 +14,7 @@ const contenedorMayor: HTMLElement = document.createElement('div');
 contenedorMayor.classList.add('contenedorMayor');
 
 
-const teamPokemon: Object[] = []
+
 
 const componenteInicial = () => {
   const contenedorMayor: HTMLElement = document.createElement('div');
