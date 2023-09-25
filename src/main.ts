@@ -1,4 +1,4 @@
-import modal from "./logica/Modal";
+import modal from "./logica/modal";
 
 import "./style.css"
 import "./modal.css"
