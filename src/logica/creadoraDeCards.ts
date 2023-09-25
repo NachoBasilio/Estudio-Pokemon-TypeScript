@@ -9,7 +9,6 @@ const creadoraDeCards = async (generacion: number | string, padre: HTMLElement |
     const nombre: HTMLElement = document.createElement('h2');
     const tipo: HTMLElement = document.createElement('h3');
     const select: HTMLElement = document.createElement('select');
-    const botonEliminar: HTMLElement = document.createElement('button');
 
 
     const p = document.createElement('p');
@@ -40,7 +39,7 @@ const creadoraDeCards = async (generacion: number | string, padre: HTMLElement |
     nombre.textContent = pokemon[0].name.charAt(0).toUpperCase() + pokemon[0].name.slice(1); 
     img.setAttribute('src', pokemon[0].img);
     tipo.textContent = pokemon[0].type.charAt(0).toUpperCase() + pokemon[0].type.slice(1);
-    botonEliminar.textContent = 'Eliminar';
+    
 
 
     contenedor.appendChild(nombre);
@@ -62,12 +61,7 @@ const creadoraDeCards = async (generacion: number | string, padre: HTMLElement |
         tipo.textContent = pokemonSeleccionado.type.charAt(0).toUpperCase() + pokemonSeleccionado.type.slice(1);
       }
     });
-    contenedor.appendChild(botonEliminar)
-    botonEliminar.addEventListener('click', (e) => {
-      const target = e.target as HTMLButtonElement;
-      const padre = target.parentElement;
-      padre?.remove();
-    })
+
     
 
 
