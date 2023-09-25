@@ -97,6 +97,10 @@ label{
     transform: rotate(45deg);
   }
 
+  .eliminarMas{
+    display: none;
+    background-color: aqua;
+}
 
 
 /* Media Queries */

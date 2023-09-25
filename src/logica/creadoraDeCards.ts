@@ -11,6 +11,7 @@ const creadoraDeCards = async (generacion: number | string, padre: HTMLElement |
     const select: HTMLElement = document.createElement('select');
     const botonEliminar: HTMLElement = document.createElement('button');
 
+
     const p = document.createElement('p');
     p.textContent = 'cargando...';
     

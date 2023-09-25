@@ -1,21 +1,32 @@
-import modal from "./logica/creacionDeModal";
+import modal from "./logica/Modal";
 
 import "./style.css"
 import "./modal.css"
 
 const app: HTMLElement | null = document.getElementById('app');
 
-let gym = 1
+let gym = 0
 
-const contenedorMayor: HTMLElement = document.createElement('div');
-contenedorMayor.classList.add('contenedorMayor');
 
+
+
+const contenedoresDeGyms: HTMLElement[] =[
+  document.createElement('div'),
+  document.createElement('div'),
+  document.createElement('div'),
+  document.createElement('div'),
+  document.createElement('div'),
+  document.createElement('div'),
+  document.createElement('div'),
+  document.createElement('div'),
+  document.createElement('div'),
+] 
 
 
 
 const componenteInicial = () => {
   const contenedorMayor: HTMLElement = document.createElement('div');
-  contenedorMayor.classList.add('contenedorMayor');
+  contenedorMayor.classList.add('contenedor');
   const mas = document.createElement('button');
   mas.classList.add('mas');
   mas.innerText = 'Agrega Pokemon';
@@ -30,7 +41,7 @@ const componenteInicial = () => {
 }
 
 
-const modalNodo = modal(contenedorMayor, gym);
+const modalNodo = modal(contenedoresDeGyms, gym);
 modalNodo.classList.add('eliminarModal');
 
 
@@ -44,5 +55,8 @@ window.addEventListener("DOMContentLoaded", async () => {
   
 
   app?.appendChild(modalNodo);
-  app?.appendChild(contenedorMayor);
+  contenedoresDeGyms.forEach((contenedor) => {
+    contenedor.classList.add('contenedorMayor');
+    app?.appendChild(contenedor);
+  })
 });

@@ -2,7 +2,7 @@ import creadoraDeCards from "./creadoraDeCards";
 
 
 
-const modal = (app: HTMLElement | null, gym:number) => {
+const modal = (app: any, gym:number) => {
     const modal = document.createElement('div');
     const titulo = document.createElement('h2');
     const form = document.createElement('div');
@@ -103,30 +103,48 @@ const modal = (app: HTMLElement | null, gym:number) => {
 
     botonGame.addEventListener('click', () => {
         modal.classList.add('eliminarModal');
-        const GymNodo: HTMLElement = document.createElement('h3');
-        GymNodo.textContent = 'Gym: ' + gym;
-        app?.appendChild(GymNodo);
+        const nodoGym = document.createElement('p');
+        if(gym == 8){
+            nodoGym.textContent = "Champion";
+        }else if(gym == 9){
+            document.getElementsByClassName("mas")[0].classList.add("eliminarMas");
+        }else{
+            nodoGym.textContent = 'GYM ' + (gym + 1);
+        }
+        nodoGym.classList.add('tituloGym');
+        app[gym].appendChild(nodoGym);
+        
+        
+        creadoraDeCards(selectGame.value.toLocaleLowerCase(), app[gym]);
+        creadoraDeCards(selectGame.value.toLocaleLowerCase(), app[gym]);
+        creadoraDeCards(selectGame.value.toLocaleLowerCase(), app[gym]);
+        creadoraDeCards(selectGame.value.toLocaleLowerCase(), app[gym]);
+        creadoraDeCards(selectGame.value.toLocaleLowerCase(), app[gym]);
+        creadoraDeCards(selectGame.value.toLocaleLowerCase(), app[gym]);
         gym++;
-        creadoraDeCards(selectGame.value.toLocaleLowerCase(), app);
-        creadoraDeCards(selectGame.value.toLocaleLowerCase(), app);
-        creadoraDeCards(selectGame.value.toLocaleLowerCase(), app);
-        creadoraDeCards(selectGame.value.toLocaleLowerCase(), app);
-        creadoraDeCards(selectGame.value.toLocaleLowerCase(), app);
-        creadoraDeCards(selectGame.value.toLocaleLowerCase(), app);
     })
 
     botonGeneracion.addEventListener('click', () => {
         modal.classList.add('eliminarModal');
-        const GymNodo: HTMLElement = document.createElement('h3');
-        GymNodo.textContent = 'Gym: ' + gym;
-        app?.appendChild(GymNodo);
+        const nodoGym = document.createElement('p');
+        if(gym == 8){
+            nodoGym.textContent = "Champion";
+        }else if(gym == 9){
+            document.getElementsByClassName("mas")[0].classList.add("eliminarMas");
+        }else{
+            nodoGym.textContent = 'GYM ' + (gym + 1);
+        }
+        nodoGym.classList.add('tituloGym');
+        app[gym].appendChild(nodoGym);
+
+
+        creadoraDeCards(parseInt(selectGeneration.value), app[gym]);
+        creadoraDeCards(parseInt(selectGeneration.value), app[gym]);
+        creadoraDeCards(parseInt(selectGeneration.value), app[gym]);
+        creadoraDeCards(parseInt(selectGeneration.value), app[gym]);
+        creadoraDeCards(parseInt(selectGeneration.value), app[gym]);
+        creadoraDeCards(parseInt(selectGeneration.value), app[gym]);
         gym++;
-        creadoraDeCards(parseInt(selectGeneration.value), app);
-        creadoraDeCards(parseInt(selectGeneration.value), app);
-        creadoraDeCards(parseInt(selectGeneration.value), app);
-        creadoraDeCards(parseInt(selectGeneration.value), app);
-        creadoraDeCards(parseInt(selectGeneration.value), app);
-        creadoraDeCards(parseInt(selectGeneration.value), app);
     })
 
     botonCerrar.addEventListener('click', () => {
