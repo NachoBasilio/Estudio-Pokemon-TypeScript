@@ -1,3 +1,4 @@
+import fetchPokemonGeneration, { fetchPokemonGames } from "../helpers/fetch";
 import contenedorDeCards from "./contenedorDeCards";
 
 
@@ -101,7 +102,7 @@ const modal = (app: any) => {
 
 
 
-    botonGame.addEventListener('click', () => {
+    botonGame.addEventListener('click', async() => {
         modal.classList.add('eliminarModal');
 
 
@@ -111,11 +112,15 @@ const modal = (app: any) => {
             titulo.innerText = selectGame.value;
         }
         app.innerHTML = '';
-        contenedorDeCards(selectGame.value.toLocaleLowerCase(), app);
+        if(!localStorage.getItem('pokemon'+selectGame.value.toLocaleLowerCase())){
+            const pokemon =  await fetchPokemonGames(selectGame.value.toLocaleLowerCase());
+            localStorage.setItem('pokemon'+selectGame.value.toLocaleLowerCase(), JSON.stringify(pokemon));
+        }
+        await contenedorDeCards(selectGame.value.toLocaleLowerCase(), app);
 
     })
 
-    botonGeneracion.addEventListener('click', () => {
+    botonGeneracion.addEventListener('click', async () => {
         modal.classList.add('eliminarModal');
 
         const titulo = document.getElementById('TituloDelJuego');
@@ -123,7 +128,16 @@ const modal = (app: any) => {
             titulo.innerText = selectGeneration.value + ' Generación';
         }
         app.innerHTML = '';
-        contenedorDeCards(selectGame.value.toLocaleLowerCase(), app);
+        await fetchPokemonGeneration(parseInt(selectGeneration.value));
+
+
+        if(!localStorage.getItem('pokemon'+selectGeneration.value)){
+            const pokemon =  await fetchPokemonGeneration(parseInt(selectGeneration.value));
+            localStorage.setItem('pokemon'+selectGeneration.value, JSON.stringify(pokemon));
+        }
+      
+
+        await contenedorDeCards(parseInt(selectGeneration.value), app);
     })
 
     botonCerrar.addEventListener('click', () => {

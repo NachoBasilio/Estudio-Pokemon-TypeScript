@@ -7,8 +7,6 @@ const app: HTMLElement | null = document.getElementById('app');
 const tituloPokemon: HTMLElement | null = document.createElement('h1');
 tituloPokemon.id = ('TituloDelJuego');
 
-let gym = 0
-
 
 const contenedorPokemons = document.createElement('div');
 contenedorPokemons.classList.add('contenedor');
