@@ -4,24 +4,14 @@ import "./style.css"
 import "./modal.css"
 
 const app: HTMLElement | null = document.getElementById('app');
+const tituloPokemon: HTMLElement | null = document.createElement('h1');
+tituloPokemon.id = ('TituloDelJuego');
 
 let gym = 0
 
 
-
-
-const contenedoresDeGyms: HTMLElement[] =[
-  document.createElement('div'),
-  document.createElement('div'),
-  document.createElement('div'),
-  document.createElement('div'),
-  document.createElement('div'),
-  document.createElement('div'),
-  document.createElement('div'),
-  document.createElement('div'),
-  document.createElement('div'),
-] 
-
+const contenedorPokemons = document.createElement('div');
+contenedorPokemons.classList.add('contenedor');
 
 
 const componenteInicial = () => {
@@ -41,7 +31,7 @@ const componenteInicial = () => {
 }
 
 
-const modalNodo = modal(contenedoresDeGyms, gym);
+const modalNodo = modal(contenedorPokemons);
 modalNodo.classList.add('eliminarModal');
 
 
@@ -54,9 +44,8 @@ window.addEventListener("DOMContentLoaded", async () => {
   // Una vez que las operaciones de creación de cards se completen, oculta el loader
   
 
+
   app?.appendChild(modalNodo);
-  contenedoresDeGyms.forEach((contenedor) => {
-    contenedor.classList.add('contenedorMayor');
-    app?.appendChild(contenedor);
-  })
+  app?.appendChild(tituloPokemon);
+  app?.appendChild(contenedorPokemons);
 });

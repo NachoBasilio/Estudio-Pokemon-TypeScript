@@ -41,8 +41,10 @@ h1{
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-    margin: 0 auto;
+
 }
+
+
 
 .contenedor{
     display: flex;
@@ -65,7 +67,7 @@ h1{
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    margin: 10px;
+    margin: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     transition: all 0.5s ease;
