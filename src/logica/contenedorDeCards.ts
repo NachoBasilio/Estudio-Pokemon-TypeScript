@@ -34,6 +34,7 @@ const contenedorDeCards = (genOGame: string | number, padre: HTMLElement)=>{
         titulo.classList.add('tituloGym');
         
         contenedor.appendChild(contenedorObjetivoHTML);
+
         creadoraDeCards(genOGame, contenedorObjetivoHTML);
         creadoraDeCards(genOGame, contenedorObjetivoHTML);
         creadoraDeCards(genOGame, contenedorObjetivoHTML);

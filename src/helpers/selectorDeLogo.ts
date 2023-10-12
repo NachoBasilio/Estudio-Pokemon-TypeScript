@@ -36,7 +36,8 @@ import violet from "/logos/violeta.webp";
 
 
 export default function selectorDeLogo(juegoOgen: string | number, nodo: HTMLElement) {
-    const img = document.createElement('img');
+    const img = document.createElement('img')
+    console.log(juegoOgen)
   
     const juegoImagenes: any = {
       Red: red,
@@ -48,7 +49,7 @@ export default function selectorDeLogo(juegoOgen: string | number, nodo: HTMLEle
       Ruby: ruby,
       Sapphire: sapphire,
       Emerald: emerald,
-      FireRed: firered,
+      Firered: firered,
       Leafgreen: leafgreen,
       Diamond: diamond,
       Pearl: pearl,

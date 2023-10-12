@@ -28,14 +28,13 @@ const creadoraDeCards = async (generacion: number | string, padre: HTMLElement |
           pokemon = await fetchPokemonGames(generacion);
       }else{
           pokemon = await fetchPokemonGeneration(generacion);
-          console.log(pokemon);
         }
     }
   
      
   
     localStorage.setItem('pokemon'+generacion, JSON.stringify(pokemon));
-    console.log(pokemon);
+
     nombre.textContent = pokemon[0].name.charAt(0).toUpperCase() + pokemon[0].name.slice(1); 
     img.setAttribute('src', pokemon[0].img);
     tipo.textContent = pokemon[0].type.charAt(0).toUpperCase() + pokemon[0].type.slice(1);

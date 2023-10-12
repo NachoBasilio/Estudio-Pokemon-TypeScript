@@ -110,11 +110,16 @@ const modal = (contenedorPokemons: any) => {
 
     botonGame.addEventListener('click', async() => {
         contenedorPokemons.innerHTML = '';
+
         modal.classList.add('eliminarModal');
+
+     
+        
 
         if(loader.classList.contains('hidden')){
             loader.classList.remove('hidden');
         }
+
         contenedorPokemons.appendChild(loader);
 
       
@@ -124,26 +129,31 @@ const modal = (contenedorPokemons: any) => {
             selectorDeLogo(selectGame.value, titulo);
         }
         
+
         if(!localStorage.getItem('pokemon'+selectGame.value.toLocaleLowerCase())){
             const pokemon =  await fetchPokemonGames(selectGame.value.toLocaleLowerCase());
             localStorage.setItem('pokemon'+selectGame.value.toLocaleLowerCase(), JSON.stringify(pokemon));
         }
         
-       
         await contenedorDeCards(selectGame.value.toLocaleLowerCase(), contenedorPokemons);
         
     })
 
     botonGeneracion.addEventListener('click', async () => {
+        contenedorPokemons.innerHTML = '';
+
         modal.classList.add('eliminarModal');
 
         const titulo = document.getElementById('TituloDelJuego');
         if(titulo){
-            titulo.innerText = selectGeneration.value + ' Generación';
+            titulo.innerText = "";
+            selectorDeLogo(selectGeneration.value, titulo);
         }
-        contenedorPokemons.innerHTML = '';
-        await fetchPokemonGeneration(parseInt(selectGeneration.value));
 
+        if(loader.classList.contains('hidden')){
+            loader.classList.remove('hidden');
+        }
+        contenedorPokemons.appendChild(loader);
 
         if(!localStorage.getItem('pokemon'+selectGeneration.value)){
             const pokemon =  await fetchPokemonGeneration(parseInt(selectGeneration.value));
