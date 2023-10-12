@@ -4,7 +4,7 @@ import "./style.css"
 import "./modal.css"
 
 const app: HTMLElement | null = document.getElementById('app');
-const tituloPokemon: HTMLElement | null = document.createElement('h1');
+const tituloPokemon: HTMLElement | null = document.createElement('div');
 tituloPokemon.id = ('TituloDelJuego');
 
 

@@ -1,4 +1,5 @@
 import fetchPokemonGeneration, { fetchPokemonGames } from "../helpers/fetch";
+import selectorDeLogo from "../helpers/selectorDeLogo";
 import contenedorDeCards from "./contenedorDeCards";
 
 
@@ -109,7 +110,8 @@ const modal = (app: any) => {
       
         const titulo = document.getElementById('TituloDelJuego');
         if(titulo){
-            titulo.innerText = selectGame.value;
+            titulo.innerText =""
+            selectorDeLogo(selectGame.value, titulo);
         }
         app.innerHTML = '';
         if(!localStorage.getItem('pokemon'+selectGame.value.toLocaleLowerCase())){
