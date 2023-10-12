@@ -15,10 +15,12 @@ const contenedorDeCards = (genOGame: string | number, padre: HTMLElement)=>{
         "Champion",
         "Hall of Fame"
     ]
+    
 
     const contenedor: HTMLElement = document.createElement('div');
     contenedor.classList.add('contenedor');
     contenedoresObjetivos.forEach((contenedorObjetivo)=>{
+        
         const contenedorObjetivoHTML: HTMLElement = document.createElement('div');
         
         
@@ -27,8 +29,6 @@ const contenedorDeCards = (genOGame: string | number, padre: HTMLElement)=>{
         contenedorObjetivoHTML.appendChild(titulo);
 
 
-        
-        
         
         contenedorObjetivoHTML.classList.add('contenedorMayor');
         titulo.classList.add('tituloGym');
@@ -40,8 +40,12 @@ const contenedorDeCards = (genOGame: string | number, padre: HTMLElement)=>{
         creadoraDeCards(genOGame, contenedorObjetivoHTML);
         creadoraDeCards(genOGame, contenedorObjetivoHTML);
         creadoraDeCards(genOGame, contenedorObjetivoHTML);
+        
+        
+        
     })
-
+    const loader = document.getElementById('loader');
+    loader?.classList.add("hidden")
     padre.appendChild(contenedor);
 } 
 

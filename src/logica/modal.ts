@@ -3,7 +3,7 @@ import selectorDeLogo from "../helpers/selectorDeLogo";
 import contenedorDeCards from "./contenedorDeCards";
 
 
-const modal = (app: any) => {
+const modal = (contenedorPokemons: any) => {
     const modal = document.createElement('div');
     const titulo = document.createElement('h2');
     const form = document.createElement('div');
@@ -14,6 +14,8 @@ const modal = (app: any) => {
     const botonGeneracion = document.createElement('button');
     const botonGame = document.createElement('button');
     const botonCerrar = document.createElement('button');
+    const loader = document.createElement('div');
+
 
     modal.classList.add('modal');
     titulo.classList.add('titulo');
@@ -25,6 +27,8 @@ const modal = (app: any) => {
     botonGeneracion.classList.add('boton');
     botonGame.classList.add('boton');
     botonCerrar.classList.add('botonCerrar');
+    loader.classList.add('loader');
+    loader.id = 'loader';
     
 
     titulo.textContent = 'Agrega un Pokemon';
@@ -102,10 +106,16 @@ const modal = (app: any) => {
     modal.appendChild(form);
 
 
+  
 
     botonGame.addEventListener('click', async() => {
+        contenedorPokemons.innerHTML = '';
         modal.classList.add('eliminarModal');
 
+        if(loader.classList.contains('hidden')){
+            loader.classList.remove('hidden');
+        }
+        contenedorPokemons.appendChild(loader);
 
       
         const titulo = document.getElementById('TituloDelJuego');
@@ -113,13 +123,15 @@ const modal = (app: any) => {
             titulo.innerText =""
             selectorDeLogo(selectGame.value, titulo);
         }
-        app.innerHTML = '';
+        
         if(!localStorage.getItem('pokemon'+selectGame.value.toLocaleLowerCase())){
             const pokemon =  await fetchPokemonGames(selectGame.value.toLocaleLowerCase());
             localStorage.setItem('pokemon'+selectGame.value.toLocaleLowerCase(), JSON.stringify(pokemon));
         }
-        await contenedorDeCards(selectGame.value.toLocaleLowerCase(), app);
-
+        
+       
+        await contenedorDeCards(selectGame.value.toLocaleLowerCase(), contenedorPokemons);
+        
     })
 
     botonGeneracion.addEventListener('click', async () => {
@@ -129,7 +141,7 @@ const modal = (app: any) => {
         if(titulo){
             titulo.innerText = selectGeneration.value + ' Generación';
         }
-        app.innerHTML = '';
+        contenedorPokemons.innerHTML = '';
         await fetchPokemonGeneration(parseInt(selectGeneration.value));
 
 
@@ -139,7 +151,7 @@ const modal = (app: any) => {
         }
       
 
-        await contenedorDeCards(parseInt(selectGeneration.value), app);
+        await contenedorDeCards(parseInt(selectGeneration.value), contenedorPokemons);
     })
 
     botonCerrar.addEventListener('click', () => {

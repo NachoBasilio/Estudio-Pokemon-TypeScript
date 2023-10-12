@@ -102,6 +102,11 @@ label{
     background-color: aqua;
 }
 
+.hidden{
+    display: none;
+}
+
+
 
 /* Media Queries */
 
