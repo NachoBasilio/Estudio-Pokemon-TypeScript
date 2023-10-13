@@ -135,6 +135,8 @@ const modal = (contenedorPokemons: any) => {
             localStorage.setItem('pokemon'+selectGame.value.toLocaleLowerCase(), JSON.stringify(pokemon));
         }
         
+
+
         await contenedorDeCards(selectGame.value.toLocaleLowerCase(), contenedorPokemons);
         
     })

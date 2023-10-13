@@ -15,6 +15,18 @@ const pokemonPlaceholder: Pokemon = {
     number: '#000'
 }
 
+function buscarYAgregar<T>(array: T[], elementoBuscado: T, elementoAgregado: T): T[] {
+    const indice = array.indexOf(elementoBuscado);
+  
+    if (indice !== -1) {
+      // Si se encuentra el elemento, agregamos el nuevo elemento en la posición siguiente
+      array.splice(indice + 1, 0, elementoAgregado);
+    }
+  
+    return array;
+  }
+  
+
 const fetchPokemonGeneration = async (generation: number): Promise<Pokemon[]> => {
     const pokemons: Pokemon[] = [];
     
@@ -96,11 +108,111 @@ const fetchPokemonName = async (PokemonURLs:any) => {
 
 
         
-
+        
         return data.name;
+      
+        
         
     })
     const nombres = await Promise.all(nombrePokemon);
+    if(nombres.includes("deoxys-normal")){
+        buscarYAgregar(nombres, "deoxys-normal", "deoxys-attack")
+        buscarYAgregar(nombres, "deoxys-normal", "deoxys-defense")
+        buscarYAgregar(nombres, "deoxys-normal", "deoxys-speed")
+    }
+    if(nombres.includes("wormadam-plant")){
+        buscarYAgregar(nombres, "wormadam-plant", "wormadam-sandy")
+        buscarYAgregar(nombres, "wormadam-plant", "wormadam-trash")
+    }
+    if(nombres.includes("giratina-altered")){
+        buscarYAgregar(nombres, "giratina-altered", "giratina-origin")
+    }
+    if(nombres.includes("shaymin-land")){
+        buscarYAgregar(nombres, "shaymin-land", "shaymin-sky")
+    }
+    if(nombres.includes("basculin-red-striped")){
+        buscarYAgregar(nombres, "basculin-red-striped", "basculin-blue-striped")
+    }
+    if(nombres.includes("darmanitan-standard")){
+        buscarYAgregar(nombres, "darmanitan-standard", "darmanitan-zen")
+    }
+    if(nombres.includes("tornadus-incarnate")){
+        buscarYAgregar(nombres, "tornadus-incarnate", "tornadus-therian")
+    }
+    if(nombres.includes("thundurus-incarnate")){
+        buscarYAgregar(nombres, "thundurus-incarnate", "thundurus-therian")
+    }
+    if(nombres.includes("landorus-incarnate")){
+        buscarYAgregar(nombres, "landorus-incarnate", "landorus-therian")
+    }
+    if(nombres.includes("keldeo-ordinary")){
+        buscarYAgregar(nombres, "keldeo-ordinary", "keldeo-resolute")
+    }
+    if(nombres.includes("meloetta-aria")){
+        buscarYAgregar(nombres, "meloetta-aria", "meloetta-pirouette")
+    }
+    if(nombres.includes("meowstic-male")){
+        buscarYAgregar(nombres, "meowstic-male", "meowstic-female")
+    }
+    if(nombres.includes("aegislash-shield")){
+        buscarYAgregar(nombres, "aegislash-shield", "aegislash-blade")
+    }
+    if(nombres.includes("pumpkaboo-average")){
+        buscarYAgregar(nombres, "pumpkaboo-average", "pumpkaboo-small")
+        buscarYAgregar(nombres, "pumpkaboo-average", "pumpkaboo-large")
+        buscarYAgregar(nombres, "pumpkaboo-average", "pumpkaboo-super")
+    }
+    if(nombres.includes("gourgeist-average")){
+        buscarYAgregar(nombres, "gourgeist-average", "gourgeist-small")
+        buscarYAgregar(nombres, "gourgeist-average", "gourgeist-large")
+        buscarYAgregar(nombres, "gourgeist-average", "gourgeist-super")
+    }
+    if(nombres.includes("zygarde-50")){
+        buscarYAgregar(nombres, "zygarde-50", "zygarde-10")
+        buscarYAgregar(nombres, "zygarde-50", "zygarde-complete")
+    }
+    if(nombres.includes("oricorio-baile")){
+        buscarYAgregar(nombres, "oricorio-baile", "oricorio-pom-pom")
+        buscarYAgregar(nombres, "oricorio-baile", "oricorio-pau")
+        buscarYAgregar(nombres, "oricorio-baile", "oricorio-sensu")
+    }
+    if(nombres.includes("lycanroc-midday")){
+        buscarYAgregar(nombres, "lycanroc-midday", "lycanroc-midnight")
+    }
+    if(nombres.includes("minior-red-meteor")){
+        buscarYAgregar(nombres, "minior-red-meteor", "minior-orange-meteor")
+        buscarYAgregar(nombres, "minior-red-meteor", "minior-yellow-meteor")
+        buscarYAgregar(nombres, "minior-red-meteor", "minior-green-meteor")
+        buscarYAgregar(nombres, "minior-red-meteor", "minior-blue-meteor")
+        buscarYAgregar(nombres, "minior-red-meteor", "minior-indigo-meteor")
+        buscarYAgregar(nombres, "minior-red-meteor", "minior-violet-meteor")
+    }
+    if(nombres.includes("wishiwashi-solo")){
+        buscarYAgregar(nombres, "wishiwashi-solo", "wishiwashi-school")
+    }
+    if(nombres.includes("mimikyu-disguised")){
+        buscarYAgregar(nombres, "mimikyu-disguised", "mimikyu-busted")
+    }
+    if(nombres.includes("urshifu-single-strike")){
+        buscarYAgregar(nombres, "urshifu-single-strike", "urshifu-rapid-strike")
+    }
+    if(nombres.includes("indeedee-male")){
+        buscarYAgregar(nombres, "indeedee-male", "indeedee-female")
+    }
+    if(nombres.includes("morpeko-full-belly")){
+        buscarYAgregar(nombres, "morpeko-full-belly", "morpeko-hangry")
+    }
+    if(nombres.includes("eiscue-ice")){
+        buscarYAgregar(nombres, "eiscue-ice", "eiscue-noice")
+    }
+    if(nombres.includes("toxtricity-amped")){
+        buscarYAgregar(nombres, "toxtricity-amped", "toxtricity-low-key")
+    }
+
+
+
+
+    
     const nombresSinDuplicados = eliminarDuplicados(nombres);
     return nombresSinDuplicados;
     
@@ -134,7 +246,29 @@ const fetchPokemonGames = async (name: string): Promise<Pokemon[]> => {
         const response = await fetch(pokedex.url);
         const pokedexData = await response.json();
         
+
+
         const pokemonURLs = pokedexData.pokemon_entries.map((pokemon: any) => {
+            if(name === "sun" || name === "moon" || name === "ultra-sun" || name === "ultra-moon"){
+                if(pokemon.pokemon_species.name === "raichu")return "https://pokeapi.co/api/v2/pokemon/10100/"
+                if(pokemon.pokemon_species.name === "sandshrew")return "https://pokeapi.co/api/v2/pokemon/10101/"
+                if(pokemon.pokemon_species.name === "sandslash")return "https://pokeapi.co/api/v2/pokemon/10102/"
+                if(pokemon.pokemon_species.name === "vulpix")return "https://pokeapi.co/api/v2/pokemon/10103/"
+                if(pokemon.pokemon_species.name === "ninetales")return "https://pokeapi.co/api/v2/pokemon/10104/"
+                if(pokemon.pokemon_species.name === "diglett")return "https://pokeapi.co/api/v2/pokemon/10105/"
+                if(pokemon.pokemon_species.name === "dugtrio")return "https://pokeapi.co/api/v2/pokemon/10106/"
+                if(pokemon.pokemon_species.name === "meowth")return "https://pokeapi.co/api/v2/pokemon/10107/"
+                if(pokemon.pokemon_species.name === "persian")return "https://pokeapi.co/api/v2/pokemon/10108/"
+                if(pokemon.pokemon_species.name === "geodude")return "https://pokeapi.co/api/v2/pokemon/10109/"
+                if(pokemon.pokemon_species.name === "graveler")return "https://pokeapi.co/api/v2/pokemon/10110/"
+                if(pokemon.pokemon_species.name === "golem")return "https://pokeapi.co/api/v2/pokemon/10111/"
+                if(pokemon.pokemon_species.name === "grimer")return "https://pokeapi.co/api/v2/pokemon/10112/"
+                if(pokemon.pokemon_species.name === "muk")return "https://pokeapi.co/api/v2/pokemon/10113/"
+                if(pokemon.pokemon_species.name === "exeggutor")return "https://pokeapi.co/api/v2/pokemon/10114/"
+                if(pokemon.pokemon_species.name === "marowak")return "https://pokeapi.co/api/v2/pokemon/10115/"
+            }
+
+            console.log(pokemon.pokemon_species.url);
             return pokemon.pokemon_species.url;
         });
 

@@ -10,6 +10,7 @@ tituloPokemon.id = ('TituloDelJuego');
 
 const contenedorPokemons = document.createElement('div');
 contenedorPokemons.classList.add('contenedor');
+contenedorPokemons.id = 'contenedorPokemons';
 
 
 const componenteInicial = () => {
@@ -40,7 +41,8 @@ window.addEventListener("DOMContentLoaded", async () => {
   await componenteInicial();
 
   // Una vez que las operaciones de creación de cards se completen, oculta el loader
-  
+
+  const pdfPrint = document.getElementById('pdfPrint');
 
 
   app?.appendChild(modalNodo);

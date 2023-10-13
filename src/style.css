@@ -76,6 +76,13 @@ h1{
     transition: all 0.5s ease;
 }
 
+.card h2{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
 .eliminarMas{
     display: none;
     background-color: aqua;
@@ -163,3 +170,5 @@ select{
         transform: rotate(360deg);
     }
     } 
+
+

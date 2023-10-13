@@ -48,7 +48,10 @@ const contenedorDeCards = (genOGame: string | number, padre: HTMLElement)=>{
     const loader = document.getElementById('loader');
     loader?.classList.add("hidden")
     padre.appendChild(contenedor);
+    
 } 
+
+
 
 
 export default contenedorDeCards;
