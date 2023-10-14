@@ -37,6 +37,16 @@ function buscarYArreglarGeneraciones(results: Pokemon[], nombreBuscado: string, 
     }
 }
 
+function addPokemonWithUrl(results: any[], pokemonName: string, evolutionName: string, evolutionUrl: string) :any{
+    if (results.some((pokemon: any) => pokemon.name === pokemonName)) {
+        const evolution: any = {
+            name: evolutionName,
+            url: evolutionUrl
+        };
+        buscarYArreglarGeneraciones(results, pokemonName, evolution);
+    }
+}
+
 
 const fetchPokemonGeneration = async (generation: number): Promise<Pokemon[]> => {
     const pokemons: Pokemon[] = [];
@@ -48,198 +58,183 @@ const fetchPokemonGeneration = async (generation: number): Promise<Pokemon[]> =>
     const data = await response.json();
 
     const { results } = data;
-    if (results.some(pokemon => pokemon.name === "deoxys-normal")) {
-        buscarYArreglarGeneraciones(results, "deoxys-normal", {
-            name: "deoxys-attack",
-            url: "https://pokeapi.co/api/v2/pokemon/10001/"
-        });
-        buscarYArreglarGeneraciones(results, "deoxys-normal", {
-            name: "deoxys-defense",
-            url: "https://pokeapi.co/api/v2/pokemon/10002/"
-        });
-        buscarYArreglarGeneraciones(results, "deoxys-normal", {
-            name: "deoxys-speed",
-            url: "https://pokeapi.co/api/v2/pokemon/10003/"
-        });
-    }
-    if (results.some(pokemon => pokemon.name === "wormadam-plant")) {
-        buscarYArreglarGeneraciones(results, "wormadam-plant", {
-            name: "wormadam-sandy",
-            url: "https://pokeapi.co/api/v2/pokemon/10004/"
-        })
-        
+
+    if(generation === 7){
+
+        //Agregarlo al final
         results.push({
-            name: "wormadam-trash",
-            url: "https://pokeapi.co/api/v2/pokemon/10005/"
-        });
-    }
-    if (results.some(pokemon => pokemon.name === "shaymin-land")) {
-        buscarYArreglarGeneraciones(results, "shaymin-land", {
-            name: "shaymin-sky",
-            url: "https://pokeapi.co/api/v2/pokemon/10006/"
-        });
-    }
-    if (results.some(pokemon => pokemon.name === "giratina-altered")) {
-        buscarYArreglarGeneraciones(results, "giratina-altered", {
-            name: "giratina-origin",
-            url: "https://pokeapi.co/api/v2/pokemon/10007/"
-        });
-    }
-    if (results.some(pokemon => pokemon.name === "basculin-red-striped")) {
-        buscarYArreglarGeneraciones(results, "basculin-red-striped", {
-            name: "basculin-blue-striped",
-            url: "https://pokeapi.co/api/v2/pokemon/10016/"
-        });
-    }
-    if (results.some(pokemon => pokemon.name === "darmanitan-standard")) {
-        buscarYArreglarGeneraciones(results, "darmanitan-standard", {
-            name: "darmanitan-zen",
-            url: "https://pokeapi.co/api/v2/pokemon/10017/"
-        });
-    }
-    if (results.some(pokemon => pokemon.name === "melotta-aria")) {
-        buscarYArreglarGeneraciones(results, "melotta-aria", {
-            name: "melotta-pirouette",
-            url: "https://pokeapi.co/api/v2/pokemon/10018/"
-        });
-    }
-    if (results.some(pokemon => pokemon.name === "tornadus-incarnate")) {
-        buscarYArreglarGeneraciones(results, "tornadus-incarnate", {
-            name: "tornadus-therian",
-            url: "https://pokeapi.co/api/v2/pokemon/10019/"
-        });
-    }
-    if (results.some(pokemon => pokemon.name === "thundurus-incarnate")) {
-        buscarYArreglarGeneraciones(results, "thundurus-incarnate", {
-            name: "thundurus-therian",
-            url: "https://pokeapi.co/api/v2/pokemon/10020/"
-        });
-    }
-    if (results.some(pokemon => pokemon.name === "landorus-incarnate")) {
-        buscarYArreglarGeneraciones(results, "landorus-incarnate", {
-            name: "landorus-therian",
-            url: "https://pokeapi.co/api/v2/pokemon/10021/"
-        });
-    }
-    if (results.some(pokemon => pokemon.name === "keldeo-ordinary")) {
-        buscarYArreglarGeneraciones(results, "keldeo-ordinary", {
-            name: "keldeo-resolute",
-            url: "https://pokeapi.co/api/v2/pokemon/10024/"
-        });
-    }
-    if (results.some(pokemon => pokemon.name === "aegislash-shield")) {
-        buscarYArreglarGeneraciones(results, "aegislash-shield", {
-            name: "aegislash-blade",
-            url: "https://pokeapi.co/api/v2/pokemon/10026/"
-        });
-    }
-    if (results.some(pokemon => pokemon.name === "pumpkaboo-average")) {
-        buscarYArreglarGeneraciones(results, "pumpkaboo-average", {
-            name: "pumpkaboo-small",
-            url: "https://pokeapi.co/api/v2/pokemon/10027/"
-        });
-        buscarYArreglarGeneraciones(results, "pumpkaboo-average", {
-            name: "pumpkaboo-large",
-            url: "https://pokeapi.co/api/v2/pokemon/10028/"
-        });
-        buscarYArreglarGeneraciones(results, "pumpkaboo-average", {
-            name: "pumpkaboo-super",
-            url: "https://pokeapi.co/api/v2/pokemon/10029/"
-        });
-    }
-    if (results.some(pokemon => pokemon.name === "gourgeist-average")) {
-        buscarYArreglarGeneraciones(results, "gourgeist-average", {
-            name: "gourgeist-small",
-            url: "https://pokeapi.co/api/v2/pokemon/10030/"
-        });
-        buscarYArreglarGeneraciones(results, "gourgeist-average", {
-            name: "gourgeist-large",
-            url: "https://pokeapi.co/api/v2/pokemon/10031/"
-        });
-        buscarYArreglarGeneraciones(results, "gourgeist-average", {
-            name: "gourgeist-super",
-            url: "https://pokeapi.co/api/v2/pokemon/10032/"
-        });
-    }
-    if (results.some(pokemon => pokemon.name === "zygarde-50")) {
-        buscarYArreglarGeneraciones(results, "zygarde-50", {
-            name: "zygarde-10",
-            url: "https://pokeapi.co/api/v2/pokemon/10119/"
-        });
-        buscarYArreglarGeneraciones(results, "zygarde-50", {
-            name: "zygarde-complete",
-            url: "https://pokeapi.co/api/v2/pokemon/10120/"
-        });
-    }
-    if (results.some(pokemon => pokemon.name === "oricorio-baile")) {
-        buscarYArreglarGeneraciones(results, "oricorio-baile", {
-            name: "oricorio-pom-pom",
-            url: "https://pokeapi.co/api/v2/pokemon/10123/"
-        });
-        buscarYArreglarGeneraciones(results, "oricorio-baile", {
-            name: "oricorio-pau",
-            url: "https://pokeapi.co/api/v2/pokemon/10124/"
-        });
-        buscarYArreglarGeneraciones(results, "oricorio-baile", {
-            name: "oricorio-sensu",
-            url: "https://pokeapi.co/api/v2/pokemon/10125/"
-        });
-    }
-    if (results.some(pokemon => pokemon.name === "lycanroc-midday")) {
-        buscarYArreglarGeneraciones(results, "lycanroc-midday", {
-            name: "lycanroc-midnight",
-            url: "https://pokeapi.co/api/v2/pokemon/10126/"
-        });
-    }
-    if (results.some(pokemon => pokemon.name === "wishiwashi-solo")) {
-        buscarYArreglarGeneraciones(results, "wishiwashi-solo", {
-            name: "wishiwashi-school",
-            url: "https://pokeapi.co/api/v2/pokemon/10127/"
-        });
-    }
-    if(results.some(pokemon => pokemon.name === "toxtricity-amped")){
-        buscarYArreglarGeneraciones(results, "toxtricity-amped", {
-            name: "toxtricity-low-key",
-            url: "https://pokeapi.co/api/v2/pokemon/10184/"
-        });
-    }
-    if(results.some(pokemon => pokemon.name === "eiscue-ice")){
-        buscarYArreglarGeneraciones(results, "eiscue-ice", {
-            name: "eiscue-noice",
-            url: "https://pokeapi.co/api/v2/pokemon/10185/"
-        });
-    }
-    if(results.some(pokemon => pokemon.name === "indeedee-male")){
-        buscarYArreglarGeneraciones(results, "indeedee-male", {
-            name: "indeedee-female",
-            url: "https://pokeapi.co/api/v2/pokemon/10186/"
+            name: "rattata",
+            url: "https://pokeapi.co/api/v2/pokemon/10091/"
         })
-    }
-    if(results.some(pokemon => pokemon.name === "urshifu-single-strike")){
-        buscarYArreglarGeneraciones(results, "urshifu-single-strike", {
-            name: "urshifu-rapid-strike",
-            url: "https://pokeapi.co/api/v2/pokemon/10191/"
-        });
-    }
-    if(results.some(pokemon => pokemon.name === "morpeko-full-belly")){
-        buscarYArreglarGeneraciones(results, "morpeko-full-belly", {
-            name: "morpeko-hangry",
-            url: "https://pokeapi.co/api/v2/pokemon/10187/"
-        });
-    }
-    if(results.some(pokemon => pokemon.name === "zacian")){
-        buscarYArreglarGeneraciones(results, "zacian", {
-            name: "zacian-crowned",
-            url: "https://pokeapi.co/api/v2/pokemon/10188/"
-        });
-    }
-    if(results.some(pokemon => pokemon.name === "zamazenta")){
-        buscarYArreglarGeneraciones(results, "zamazenta", {
-            name: "zamazenta-crowned",
-            url: "https://pokeapi.co/api/v2/pokemon/10189/"
-        });
+        results.push({
+            name: "raticate",
+            url: "https://pokeapi.co/api/v2/pokemon/10092/"
+        })
+        results.push({
+            name: "raichu",
+            url: "https://pokeapi.co/api/v2/pokemon/10100/"
+        })
+        results.push({
+            name: "sandshrew",
+            url: "https://pokeapi.co/api/v2/pokemon/10101/"
+        })
+        results.push({
+            name: "sandslash",
+            url: "https://pokeapi.co/api/v2/pokemon/10102/"
+        })
+        results.push({
+            name: "vulpix",
+            url: "https://pokeapi.co/api/v2/pokemon/10103/"
+        })
+        results.push({
+            name: "ninetales",
+            url: "https://pokeapi.co/api/v2/pokemon/10104/"
+        })
+        results.push({
+            name: "diglett",
+            url: "https://pokeapi.co/api/v2/pokemon/10105/"
+        })
+        results.push({
+            name: "dugtrio",
+            url: "https://pokeapi.co/api/v2/pokemon/10106/"
+        })
+        results.push({
+            name: "meowth",
+            url: "https://pokeapi.co/api/v2/pokemon/10107/"
+        })
+        results.push({
+            name: "persian",
+            url: "https://pokeapi.co/api/v2/pokemon/10108/"
+        })
+        results.push({
+            name: "geodude",
+            url: "https://pokeapi.co/api/v2/pokemon/10109/"
+        })
+        results.push({
+            name: "graveler",
+            url: "https://pokeapi.co/api/v2/pokemon/10110/"
+        })
+        results.push({
+            name: "golem",
+            url: "https://pokeapi.co/api/v2/pokemon/10111/"
+        })
+        results.push({
+            name: "grimer",
+            url: "https://pokeapi.co/api/v2/pokemon/10112/"
+        })
+        results.push({
+            name: "muk",
+            url: "https://pokeapi.co/api/v2/pokemon/10113/"
+        })
+        results.push({
+            name: "exeggutor",
+            url: "https://pokeapi.co/api/v2/pokemon/10114/"
+        })
+        results.push({
+            name: "marowak",
+            url: "https://pokeapi.co/api/v2/pokemon/10115/"
+        })
     }
 
+    if(generation === 8){
+        addPokemonWithUrl(results, "grimmsnarl", "zigzagoon", "https://pokeapi.co/api/v2/pokemon/10174/")
+        addPokemonWithUrl(results, "zigzagoon", "linoone", "https://pokeapi.co/api/v2/pokemon/10175/")
+        addPokemonWithUrl(results, "obstagoon", "meowth", "https://pokeapi.co/api/v2/pokemon/10161/")
+        addPokemonWithUrl(results, "perrserker", "corsola", "https://pokeapi.co/api/v2/pokemon/10173/")
+        addPokemonWithUrl(results, "cursola", "farfetchd", "https://pokeapi.co/api/v2/pokemon/10166/")
+        addPokemonWithUrl(results, "sirfetchd", "mr-mime", "https://pokeapi.co/api/v2/pokemon/10168/")
+        addPokemonWithUrl(results, "mr-rime", "yamask", "https://pokeapi.co/api/v2/pokemon/10179/")
+        addPokemonWithUrl(results, "runerigus", "ponyta", "https://pokeapi.co/api/v2/pokemon/10162/")
+
+
+        results.push({
+            name: "ponyta",
+            url: "https://pokeapi.co/api/v2/pokemon/10162/"
+        })
+        results.push({
+            name: "rapidash",
+            url: "https://pokeapi.co/api/v2/pokemon/10163/"
+        })
+        results.push({
+            name: "slowpoke",
+            url: "https://pokeapi.co/api/v2/pokemon/10164/"
+        })
+        results.push({
+            name: "slowbro",
+            url: "https://pokeapi.co/api/v2/pokemon/10165/"
+        })
+        results.push({
+            name: "slowking",
+            url: "https://pokeapi.co/api/v2/pokemon/10172/"
+        })
+        results.push({
+            name: "weezing",
+            url: "https://pokeapi.co/api/v2/pokemon/10167/"
+        })
+        results.push({
+            name: "articuno",
+            url: "https://pokeapi.co/api/v2/pokemon/10169/"
+        })
+        results.push({
+            name: "zapdos",
+            url: "https://pokeapi.co/api/v2/pokemon/10170/"
+        })
+        results.push({
+            name: "moltres",
+            url: "https://pokeapi.co/api/v2/pokemon/10171/"
+        })
+
+        results.push({
+            name: "darumaka",
+            url: "https://pokeapi.co/api/v2/pokemon/10176/"
+        })
+        results.push({
+            name: "darmanitan-standard",
+            url: "https://pokeapi.co/api/v2/pokemon/10177/"
+        })
+        results.push({
+            name: "stunfisk",
+            url: "https://pokeapi.co/api/v2/pokemon/10180/"
+        })
+
+
+    }
+      
+    addPokemonWithUrl(results, "deoxys-normal", "deoxys-attack", "https://pokeapi.co/api/v2/pokemon/10001/");
+    addPokemonWithUrl(results, "deoxys-normal", "deoxys-defense", "https://pokeapi.co/api/v2/pokemon/10002/");
+    addPokemonWithUrl(results, "deoxys-normal", "deoxys-speed", "https://pokeapi.co/api/v2/pokemon/10003/");
+    addPokemonWithUrl(results, "wormadam-plant", "wormadam-sandy", "https://pokeapi.co/api/v2/pokemon/10004/");
+    addPokemonWithUrl(results, "wormadam-plant", "wormadam-trash", "https://pokeapi.co/api/v2/pokemon/10005/");
+    addPokemonWithUrl(results, "shaymin-land", "shaymin-sky", "https://pokeapi.co/api/v2/pokemon/10006");
+    addPokemonWithUrl(results, "giratina-altered", "giratina-origin", "https://pokeapi.co/api/v2/pokemon/10007");
+    addPokemonWithUrl(results, "basculin-red-striped", "basculin-blue-striped", "https://pokeapi.co/api/v2/pokemon/10016");
+    addPokemonWithUrl(results, "melotta-aria", "melotta-pirouette", "https://pokeapi.co/api/v2/pokemon/10018");
+    addPokemonWithUrl(results, "tornadus-incarnate", "tornadus-therian", "https://pokeapi.co/api/v2/pokemon/10019");
+    addPokemonWithUrl(results, "thundurus-incarnate", "thundurus-therian", "https://pokeapi.co/api/v2/pokemon/10020");
+    addPokemonWithUrl(results, "landorus-incarnate", "landorus-therian", "https://pokeapi.co/api/v2/pokemon/10021");
+    addPokemonWithUrl(results, "keldeo-ordinary", "keldeo-resolute", "https://pokeapi.co/api/v2/pokemon/10024");
+    addPokemonWithUrl(results, "aegislash-shield", "aegislash-blade", "https://pokeapi.co/api/v2/pokemon/10026");
+    addPokemonWithUrl(results, "pumpkaboo-average", "pumpkaboo-small", "https://pokeapi.co/api/v2/pokemon/10027");
+    addPokemonWithUrl(results, "pumpkaboo-average", "pumpkaboo-large", "https://pokeapi.co/api/v2/pokemon/10028");
+    addPokemonWithUrl(results, "pumpkaboo-average", "pumpkaboo-super", "https://pokeapi.co/api/v2/pokemon/10029");
+    addPokemonWithUrl(results, "gourgeist-average", "gourgeist-small", "https://pokeapi.co/api/v2/pokemon/10030");
+    addPokemonWithUrl(results, "gourgeist-average", "gourgeist-large", "https://pokeapi.co/api/v2/pokemon/10031");
+    addPokemonWithUrl(results, "gourgeist-average", "gourgeist-super", "https://pokeapi.co/api/v2/pokemon/10032");
+    addPokemonWithUrl(results, "zygarde-50", "zygarde-10", "https://pokeapi.co/api/v2/pokemon/10119");
+    addPokemonWithUrl(results, "zygarde-50", "zygarde-complete", "https://pokeapi.co/api/v2/pokemon/10120");
+    addPokemonWithUrl(results, "oricorio-baile", "oricorio-pom-pom", "https://pokeapi.co/api/v2/pokemon/10123");
+    addPokemonWithUrl(results, "oricorio-baile", "oricorio-pau", "https://pokeapi.co/api/v2/pokemon/10124");
+    addPokemonWithUrl(results, "oricorio-baile", "oricorio-sensu", "https://pokeapi.co/api/v2/pokemon/10125");
+    addPokemonWithUrl(results, "lycanroc-midday", "lycanroc-midnight", "https://pokeapi.co/api/v2/pokemon/10126");
+    addPokemonWithUrl(results, "wishiwashi-solo", "wishiwashi-school", "https://pokeapi.co/api/v2/pokemon/10127");
+    addPokemonWithUrl(results, "toxtricity-amped", "toxtricity-low-key", "https://pokeapi.co/api/v2/pokemon/10184");
+    addPokemonWithUrl(results, "eiscue-ice", "eiscue-noice", "https://pokeapi.co/api/v2/pokemon/10185");
+    addPokemonWithUrl(results, "indeedee-male", "indeedee-female", "https://pokeapi.co/api/v2/pokemon/10186");
+    addPokemonWithUrl(results, "urshifu-single-strike", "urshifu-rapid-strike", "https://pokeapi.co/api/v2/pokemon/10191");
+    addPokemonWithUrl(results, "morpeko-full-belly", "morpeko-hangry", "https://pokeapi.co/api/v2/pokemon/10187");
+    addPokemonWithUrl(results, "zacian", "zacian-crowned", "https://pokeapi.co/api/v2/pokemon/10188");
+    addPokemonWithUrl(results, "zamazenta", "zamazenta-crowned", "https://pokeapi.co/api/v2/pokemon/10189");
+      
     
 
     for (const pokemon of results) {
@@ -338,9 +333,6 @@ const fetchPokemonName = async (PokemonURLs:any) => {
     }
     if(nombres.includes("basculin-red-striped")){
         buscarYAgregar(nombres, "basculin-red-striped", "basculin-blue-striped")
-    }
-    if(nombres.includes("darmanitan-standard")){
-        buscarYAgregar(nombres, "darmanitan-standard", "darmanitan-zen")
     }
     if(nombres.includes("tornadus-incarnate")){
         buscarYAgregar(nombres, "tornadus-incarnate", "tornadus-therian")
@@ -459,6 +451,8 @@ const fetchPokemonGames = async (name: string): Promise<Pokemon[]> => {
 
         const pokemonURLs = pokedexData.pokemon_entries.map((pokemon: any) => {
             if(name === "sun" || name === "moon" || name === "ultra-sun" || name === "ultra-moon"){
+                if(pokemon.pokemon_species.name === "rattata")return "https://pokeapi.co/api/v2/pokemon/10091/"
+                if(pokemon.pokemon_species.name === "raticate")return "https://pokeapi.co/api/v2/pokemon/10092/"
                 if(pokemon.pokemon_species.name === "raichu")return "https://pokeapi.co/api/v2/pokemon/10100/"
                 if(pokemon.pokemon_species.name === "sandshrew")return "https://pokeapi.co/api/v2/pokemon/10101/"
                 if(pokemon.pokemon_species.name === "sandslash")return "https://pokeapi.co/api/v2/pokemon/10102/"
@@ -495,8 +489,8 @@ const fetchPokemonGames = async (name: string): Promise<Pokemon[]> => {
                 if(pokemon.pokemon_species.name === "linoone")return "https://pokeapi.co/api/v2/pokemon/10175/"
                 if(pokemon.pokemon_species.name === "darumaka")return "https://pokeapi.co/api/v2/pokemon/10176/"
                 if(pokemon.pokemon_species.name === "darmanitan-standard")return "https://pokeapi.co/api/v2/pokemon/10177/"
-                if(pokemon.pokemon_species.name === "yamask")return "https://pokeapi.co/api/v2/pokemon/10178/"
-                if(pokemon.pokemon_species.name === "stunfisk")return "https://pokeapi.co/api/v2/pokemon/10179/"
+                if(pokemon.pokemon_species.name === "yamask")return "https://pokeapi.co/api/v2/pokemon/10179/"
+                if(pokemon.pokemon_species.name === "stunfisk")return "https://pokeapi.co/api/v2/pokemon/10180/"
             }
 
             console.log(pokemon.pokemon_species.url);
