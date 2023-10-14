@@ -35,12 +35,12 @@ const contenedorDeCards = (genOGame: string | number, padre: HTMLElement)=>{
         
         contenedor.appendChild(contenedorObjetivoHTML);
 
-        creadoraDeCards(genOGame, contenedorObjetivoHTML);
-        creadoraDeCards(genOGame, contenedorObjetivoHTML);
-        creadoraDeCards(genOGame, contenedorObjetivoHTML);
-        creadoraDeCards(genOGame, contenedorObjetivoHTML);
-        creadoraDeCards(genOGame, contenedorObjetivoHTML);
-        creadoraDeCards(genOGame, contenedorObjetivoHTML);
+        creadoraDeCards(genOGame, contenedorObjetivoHTML, contenedorObjetivo, 1);
+        creadoraDeCards(genOGame, contenedorObjetivoHTML, contenedorObjetivo, 2);
+        creadoraDeCards(genOGame, contenedorObjetivoHTML, contenedorObjetivo, 3);
+        creadoraDeCards(genOGame, contenedorObjetivoHTML, contenedorObjetivo, 4);
+        creadoraDeCards(genOGame, contenedorObjetivoHTML, contenedorObjetivo, 5);
+        creadoraDeCards(genOGame, contenedorObjetivoHTML, contenedorObjetivo, 6);
         
         
         

@@ -5,6 +5,7 @@ interface Pokemon {
     name: string;
     img: string;
     type: string;
+    type2: string;
     number: string;
 }
 
@@ -12,6 +13,7 @@ const pokemonPlaceholder: Pokemon = {
     name: 'pokemon',
     img: 'https://images.vexels.com/media/users/3/155301/isolated/preview/6a91c0d6c8ba37a9fd115e1776300319-pregunta-de-doodle-de-signo-de-interrogacion-3d.png',
     type: 'normal',
+    type2: 'normal',
     number: '#000'
 }
 
@@ -248,6 +250,7 @@ const fetchPokemonGeneration = async (generation: number): Promise<Pokemon[]> =>
             name,
             img: front_default,
             type: types[0].type.name,
+            type2: types[1]?.type.name || '',
             number: `#${id.toString().padStart(3, '0')}`
         };
 
@@ -493,7 +496,6 @@ const fetchPokemonGames = async (name: string): Promise<Pokemon[]> => {
                 if(pokemon.pokemon_species.name === "stunfisk")return "https://pokeapi.co/api/v2/pokemon/10180/"
             }
 
-            console.log(pokemon.pokemon_species.url);
             return pokemon.pokemon_species.url;
         });
 
@@ -510,6 +512,7 @@ const fetchPokemonGames = async (name: string): Promise<Pokemon[]> => {
             name,
             img: front_default,
             type: types[0].type.name,
+            type2: types[1] ? types[1].type.name : "",
             number: `#${id.toString().padStart(3, '0')}`
         };
         pokemons.push(pokemonFormatted);
