@@ -42,7 +42,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   // Una vez que las operaciones de creación de cards se completen, oculta el loader
 
-  const pdfPrint = document.getElementById('pdfPrint');
+
 
 
   app?.appendChild(modalNodo);
