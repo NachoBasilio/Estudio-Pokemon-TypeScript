@@ -477,6 +477,28 @@ const fetchPokemonGames = async (name: string): Promise<Pokemon[]> => {
                 if(pokemon.pokemon_species.name === "marowak")return "https://pokeapi.co/api/v2/pokemon/10115/"
             }
 
+            if(name === "sword" || name === "shield"){
+                if(pokemon.pokemon_species.name === "meowth")return "https://pokeapi.co/api/v2/pokemon/10161/"
+                if(pokemon.pokemon_species.name === "ponyta")return "https://pokeapi.co/api/v2/pokemon/10162/"
+                if(pokemon.pokemon_species.name === "rapidash")return "https://pokeapi.co/api/v2/pokemon/10163/"
+                if(pokemon.pokemon_species.name === "slowpoke")return "https://pokeapi.co/api/v2/pokemon/10164/"
+                if(pokemon.pokemon_species.name === "slowbro")return "https://pokeapi.co/api/v2/pokemon/10165/"
+                if(pokemon.pokemon_species.name === "farfetchd")return "https://pokeapi.co/api/v2/pokemon/10166/"
+                if(pokemon.pokemon_species.name === "weezing")return "https://pokeapi.co/api/v2/pokemon/10167/"
+                if(pokemon.pokemon_species.name === "mr-mime")return "https://pokeapi.co/api/v2/pokemon/10168/"
+                if(pokemon.pokemon_species.name === "articuno")return "https://pokeapi.co/api/v2/pokemon/10169/"
+                if(pokemon.pokemon_species.name === "zapdos")return "https://pokeapi.co/api/v2/pokemon/10170/"
+                if(pokemon.pokemon_species.name === "moltres")return "https://pokeapi.co/api/v2/pokemon/10171/"
+                if(pokemon.pokemon_species.name === "slowking")return "https://pokeapi.co/api/v2/pokemon/10172/"
+                if(pokemon.pokemon_species.name === "corsola")return "https://pokeapi.co/api/v2/pokemon/10173/"
+                if(pokemon.pokemon_species.name === "zigzagoon")return "https://pokeapi.co/api/v2/pokemon/10174/"
+                if(pokemon.pokemon_species.name === "linoone")return "https://pokeapi.co/api/v2/pokemon/10175/"
+                if(pokemon.pokemon_species.name === "darumaka")return "https://pokeapi.co/api/v2/pokemon/10176/"
+                if(pokemon.pokemon_species.name === "darmanitan-standard")return "https://pokeapi.co/api/v2/pokemon/10177/"
+                if(pokemon.pokemon_species.name === "yamask")return "https://pokeapi.co/api/v2/pokemon/10178/"
+                if(pokemon.pokemon_species.name === "stunfisk")return "https://pokeapi.co/api/v2/pokemon/10179/"
+            }
+
             console.log(pokemon.pokemon_species.url);
             return pokemon.pokemon_species.url;
         });
