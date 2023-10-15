@@ -11,7 +11,7 @@ interface Pokemon {
 
 const pokemonPlaceholder: Pokemon = {
     name: 'pokemon',
-    img: 'https://images.vexels.com/media/users/3/155301/isolated/preview/6a91c0d6c8ba37a9fd115e1776300319-pregunta-de-doodle-de-signo-de-interrogacion-3d.png',
+    img: './pokeball.png',
     type: 'normal',
     type2: 'normal',
     number: '#000'
