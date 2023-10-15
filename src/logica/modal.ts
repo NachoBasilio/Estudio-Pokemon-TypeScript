@@ -135,7 +135,10 @@ const modal = (contenedorPokemons: any) => {
             localStorage.setItem('pokemon'+selectGame.value.toLocaleLowerCase(), JSON.stringify(pokemon));
         }
         
-
+        const boton = document.getElementById('mas');
+        if(boton){
+            boton.classList.add('achicar');
+        }
 
         await contenedorDeCards(selectGame.value.toLocaleLowerCase(), contenedorPokemons);
         
@@ -155,6 +158,7 @@ const modal = (contenedorPokemons: any) => {
         if(loader.classList.contains('hidden')){
             loader.classList.remove('hidden');
         }
+
         contenedorPokemons.appendChild(loader);
 
         if(!localStorage.getItem('pokemon'+selectGeneration.value)){

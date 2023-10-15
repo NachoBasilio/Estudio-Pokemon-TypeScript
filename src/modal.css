@@ -18,6 +18,8 @@
     border-radius: 10px;
 }
 
+
+
 select{
     width: 150px;
     height: 30px;
@@ -26,7 +28,17 @@ select{
     padding: 5px;
     margin-bottom: 10px;
 }
-
+.selectCard{
+    position: absolute;
+    bottom: 10px; /* Ajusta la distancia deseada desde el borde inferior */
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-bottom: 10px; /* Margen inferior para separación */
+    
+}
 .boton{
     background-color: white;
     border: none;
@@ -105,7 +117,6 @@ label{
 .hidden{
     display: none;
 }
-
 
 
 /* Media Queries */

@@ -15,10 +15,11 @@ contenedorPokemons.id = 'contenedorPokemons';
 
 const componenteInicial = () => {
   const contenedorMayor: HTMLElement = document.createElement('div');
-  contenedorMayor.classList.add('contenedor');
+  contenedorMayor.classList.add('contenedorBoton');
   const mas = document.createElement('button');
-  mas.classList.add('mas');
-  mas.innerText = 'Agrega Pokemon';
+  
+  mas.id = 'mas';
+  mas.innerText = 'Juegos/Generaciones';
   
 
   mas.addEventListener('click', async () => {

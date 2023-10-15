@@ -1,21 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
+
+#contenedorPokemons{
+    background-color: #ffffff;
+}
 
 body{
-    background-color: #f8d1a4;
+    background-color: hsl(0, 0%, 100%);
+    width: 100%;
 }
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    width: 100%;
+}
+header img{
+    width: 150px;
+    margin: 0 auto;
+}
+
 
 h1{
     text-align: center;
-    margin: 20px 0;
+    font-size: 40px;
 }
 
 #app{
@@ -56,31 +77,54 @@ h1{
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-    margin: 0 auto;
+    margin-bottom: 100px;
 }
 
+.contenedorBoton button{
+    margin: 0 auto;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    transition: all 0.5s ease;
+    margin: 30px auto 0 auto;
+}
+
+.contenedorBoton .achicar{
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    margin: 20px auto 50px auto;
+}
 
 .card{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     width: 200px;
     height: 350px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     margin: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     transition: all 0.5s ease;
+    position: relative;
 }
 
 .card h2{
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 40px;
 }
 
 .eliminarMas{
@@ -136,7 +180,7 @@ select{
 }
 
 #TituloDelJuego{
-    width: 400px;
+    width: 300px;
     margin-top: 20px;
 }
 
@@ -148,6 +192,20 @@ select{
 
 .hidden{
     display: none;
+}
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .loader {
@@ -172,3 +230,60 @@ select{
     } 
 
 
+    @media screen and (min-width: 600px){
+        header{
+            width: 80%;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 20px;
+            margin: 0 auto;
+        }
+        #TituloDelJuego{
+            width: 300px;
+        }
+        
+        #TituloDelJuego img{
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+        }
+        
+    }
+    
+    @media screen and (min-width: 1024px){
+        header{
+            width: 80%;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            margin: 0 auto;
+        }
+        #TituloDelJuego{
+            width: 600px;
+        }
+        
+        #TituloDelJuego img{
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+        }
+    }
+    
+    @media screen and (min-width: 1440px){
+        header{
+            width: 70%;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            margin: 0 auto;
+        }
+        #TituloDelJuego{
+            width: 600px;
+        }
+        
+        #TituloDelJuego img{
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+        }
+    }

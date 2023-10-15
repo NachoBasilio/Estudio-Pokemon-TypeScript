@@ -93,6 +93,7 @@ const creadoraDeCards = async (generacion: number | string, padre: HTMLElement |
    
   
     creadorDeSelect(select, contenedor, generacion);
+    select.classList.add('selectCard');
     select.addEventListener('change', (e) => {
       const target = e.target as HTMLSelectElement; // Assertion no nula
       
