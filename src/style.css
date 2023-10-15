@@ -205,10 +205,27 @@ footer {
     background-color: #000;
     color: #fff;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
+
+footer button{
+    margin-left: 10px;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #fff;
+    color: #000;
+}
+
+
+.apretado{
+    background-color: red;
+    color: #fff;
+}
+
 
 .loader {
     width: 48px;
@@ -240,7 +257,7 @@ footer {
             padding: 5px 20px;
             margin: 0 auto;
         }
-        h1{
+        header h1{
             color: white;
         }
         #TituloDelJuego{
@@ -263,7 +280,7 @@ footer {
             padding: 10px 20px;
             margin: 0 auto;
         }
-        h1{
+        header h1{
             color: black;
         }
         #TituloDelJuego{
@@ -284,6 +301,9 @@ footer {
             align-items: end;
             padding: 10px 20px;
             margin: 0 auto;
+        }
+        header h1{
+            color: black;
         }
         #TituloDelJuego{
             width: 600px;

@@ -12,6 +12,16 @@ const contenedorPokemons = document.createElement('div');
 contenedorPokemons.classList.add('contenedor');
 contenedorPokemons.id = 'contenedorPokemons';
 
+//Eliminar todo lo que esta en el storage
+const botonElminar = document.getElementById("eliminar")
+botonElminar?.addEventListener('click', () => {
+  botonElminar.classList.add('apretado');
+  localStorage.clear();
+  setTimeout(() => {
+    botonElminar.classList.remove('apretado');
+  }, 1000);
+
+})
 
 const componenteInicial = () => {
   const contenedorMayor: HTMLElement = document.createElement('div');
@@ -29,6 +39,7 @@ const componenteInicial = () => {
   contenedorMayor.appendChild(mas);
   app?.appendChild(contenedorMayor);
 }
+
 
 
 const modalNodo = modal(contenedorPokemons);
