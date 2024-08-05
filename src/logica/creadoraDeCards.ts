@@ -15,9 +15,9 @@ const creadoraDeCards = async (generacion: number | string, padre: HTMLElement |
 
     const p = document.createElement('p');
     p.textContent = 'cargando...';
-    
+
     padre?.appendChild(p);
-  
+
     contenedor.classList.add('card');
     contenedorIMG.classList.add('contenedorIMG');
 
@@ -32,28 +32,21 @@ const creadoraDeCards = async (generacion: number | string, padre: HTMLElement |
           pokemon = await fetchPokemonGeneration(generacion);
         }
     }
-  
-     
-  
+
     localStorage.setItem('pokemon'+generacion, JSON.stringify(pokemon));
 
-    
     if (localStorage.getItem('Equipo' + generacion)) {
       const objetoGuardado = localStorage.getItem('Equipo' + generacion);
       let objetoParseado: Record<string, any> = objetoGuardado ? JSON.parse(objetoGuardado) : {};
-    
       if (objetoParseado[generacion] && objetoParseado[generacion][gym] && objetoParseado[generacion][gym][numero]) {
         const objetoPokemon = objetoParseado[generacion][gym][numero];
-    
         nombre.textContent = objetoPokemon.name.charAt(0).toUpperCase() + objetoPokemon.name.slice(1);
         img.setAttribute('src', objetoPokemon.img);
         tipo.textContent = objetoPokemon.type.charAt(0).toUpperCase() + objetoPokemon.type.slice(1);
-    
         contenedor.appendChild(nombre);
         contenedorIMG.appendChild(img);
         contenedor.appendChild(contenedorIMG);
         contenedor.appendChild(tipo);
-    
         if (objetoPokemon.type2) {
           tipo2.textContent = objetoPokemon.type2.charAt(0).toUpperCase() + objetoPokemon.type2.slice(1);
           contenedor.appendChild(tipo2);
@@ -62,12 +55,10 @@ const creadoraDeCards = async (generacion: number | string, padre: HTMLElement |
         nombre.textContent = pokemon[0].name.charAt(0).toUpperCase() + pokemon[0].name.slice(1);
         img.setAttribute('src', pokemon[0].img);
         tipo.textContent = pokemon[0].type.charAt(0).toUpperCase() + pokemon[0].type.slice(1);
-      
         contenedor.appendChild(nombre);
         contenedorIMG.appendChild(img);
         contenedor.appendChild(contenedorIMG);
         contenedor.appendChild(tipo);
-      
         if (pokemon[0].type2) {
           tipo2.textContent = pokemon[0].type2.charAt(0).toUpperCase() + pokemon[0].type2.slice(1);
           contenedor.appendChild(tipo2);
@@ -77,28 +68,22 @@ const creadoraDeCards = async (generacion: number | string, padre: HTMLElement |
       nombre.textContent = pokemon[0].name.charAt(0).toUpperCase() + pokemon[0].name.slice(1);
       img.setAttribute('src', pokemon[0].img);
       tipo.textContent = pokemon[0].type.charAt(0).toUpperCase() + pokemon[0].type.slice(1);
-    
       contenedor.appendChild(nombre);
       contenedorIMG.appendChild(img);
       contenedor.appendChild(contenedorIMG);
       contenedor.appendChild(tipo);
-    
       if (pokemon[0].type2) {
         tipo2.textContent = pokemon[0].type2.charAt(0).toUpperCase() + pokemon[0].type2.slice(1);
         contenedor.appendChild(tipo2);
       }
     }
-    
 
-   
-  
+
     creadorDeSelect(select, contenedor, generacion);
     select.classList.add('selectCard');
     select.addEventListener('change', (e) => {
       const target = e.target as HTMLSelectElement; // Assertion no nula
-      
       const pokemonSeleccionado = pokemon.find((pokemon: any) => pokemon.name === target.value);
-    
       if (pokemonSeleccionado) {
         nombre.textContent = pokemonSeleccionado.name.charAt(0).toUpperCase() + pokemonSeleccionado.name.slice(1);
         img.setAttribute('src', pokemonSeleccionado.img);
@@ -112,17 +97,9 @@ const creadoraDeCards = async (generacion: number | string, padre: HTMLElement |
       }
     });
 
-    
 
-  
-    
     p.classList.add('cargando');
 
     padre?.appendChild(contenedor); // Clona el elemento y lo agrega al padre
-    
-    
-   
-  
 }
-  
-    export default creadoraDeCards;
+export default creadoraDeCards;
